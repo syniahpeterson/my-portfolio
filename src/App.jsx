@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PortfolioNavbar from "./components/Navbar";
 import Home from "./sections/Home";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <main>
+      <PortfolioNavbar />
       <section id="home">
         <Home />
       </section>
