@@ -16,6 +16,7 @@
   --btn-text: #fff;
 }
 
+/* Sections */
 .section {
   min-height: 100vh;
   padding: 4rem 2rem;
@@ -23,40 +24,118 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 5vh;
 }
 
-.section {
-  min-height: 100vh;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
 
+/* Navbar styling */
 .custom-navbar {
   background-color: var(--bg-color) !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-scrolled {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.custom-navbar .container {
+  overflow: visible !important;
 }
 
 .custom-navbar .navbar-brand,
 .custom-navbar .nav-link {
   color: var(--text-color) !important;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: var(--main-color);
+  transform: scale(1.05);
+}
+
+.custom-navbar .nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .custom-navbar .nav-link:hover {
   color: var(--main-color) !important;
+  transform: translateY(-2px);
+}
+
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--main-color);
+  transition: width 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover::after {
+  width: 100%;
 }
 
 .custom-navbar .nav-link.active {
   color: var(--main-color) !important;
   font-weight: bold;
+  border-bottom: 2px solid var(--main-color);
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+/* Theme toggle button */
+.custom-navbar .btn svg {
+  transition: transform 0.3s ease;
 }
 
-.light-theme .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(34,34,34,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+.custom-navbar .btn:active svg {
+  transform: rotate(20deg);
+}
+
+/* Hamburger toggler container */
+.custom-toggler {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  position: relative;
+}
+
+/* Bars for Plus/Minus */
+.custom-toggler .bar {
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  background-color: var(--main-color);
+  transition: all 0.3s ease;
+}
+
+/* Horizontal bar (always visible) */
+.custom-toggler .bar1 {
+  transform: rotate(0deg);
+}
+
+/* Vertical bar (for plus) */
+.custom-toggler .bar2 {
+  transform: rotate(90deg);
+}
+
+/* Animate to minus when open */
+.custom-toggler.open .bar1 {
+  transform: rotate(0deg); /* stays horizontal */
+}
+
+.custom-toggler.open .bar2 {
+  opacity: 0; /* vertical disappears */
 }
