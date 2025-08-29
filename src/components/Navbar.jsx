@@ -45,7 +45,7 @@ function PortfolioNavbar() {
       className={`custom-navbar ${scrolled ? "navbar-scrolled" : ""}`}
     >
       <Container>
-        <Navbar.Brand href="#home">My Portfolio</Navbar.Brand>
+        <Navbar.Brand href="#home">Portfolio</Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           className={`custom-toggler ${expanded ? "open" : ""}`}
