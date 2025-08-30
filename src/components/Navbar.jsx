@@ -3,20 +3,13 @@ import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { FaSun, FaMoon } from "react-icons/fa";
 import useScrollSpy from "../hooks/useScrollSpy";
 
-function PortfolioNavbar() {
+const PortfolioNavbar = ({ theme, setTheme }) => {
+  // Section IDs for navigation
   const sections = ["home", "about", "skills", "projects", "contact"];
+  // Track which section is currently active (for scroll spy)
   const activeSection = useScrollSpy(sections, 80);
 
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "dark"
-  );
-  useEffect(() => {
-    document.body.className = theme === "light" ? "light-theme" : "";
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
-
+  // Track if navbar is scrolled past threshold
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -24,8 +17,10 @@ function PortfolioNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Track if mobile menu is expanded
   const [expanded, setExpanded] = useState(false);
 
+  // Scroll to section and close menu on nav link click
   const handleNavClick = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -37,6 +32,18 @@ function PortfolioNavbar() {
     setExpanded(false);
   };
 
+  // Toggle mobile menu open/close
+  const handleToggleClick = () => {
+    setExpanded((prev) => !prev);
+  };
+
+  // Toggle theme and close menu if open
+  const handleThemeToggle = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+    setExpanded(false);
+  };
+
+  // Render navbar
   return (
     <Navbar
       expand="lg"
@@ -45,15 +52,20 @@ function PortfolioNavbar() {
       className={`custom-navbar ${scrolled ? "navbar-scrolled" : ""}`}
     >
       <Container>
+        {/* Brand logo/title */}
         <Navbar.Brand href="#home">Portfolio</Navbar.Brand>
+
+        {/* Mobile menu toggler */}
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           className={`custom-toggler ${expanded ? "open" : ""}`}
-          onClick={() => setExpanded(!expanded)}
+          onClick={handleToggleClick}
         >
           <span className="bar bar1"></span>
           <span className="bar bar2"></span>
         </Navbar.Toggle>
+
+        {/* Navigation links and theme toggle */}
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             {sections.map((sec) => (
@@ -65,10 +77,12 @@ function PortfolioNavbar() {
                 {sec.charAt(0).toUpperCase() + sec.slice(1)}
               </Nav.Link>
             ))}
+
+            {/* Theme toggle button */}
             <Button
               variant="outline-light"
               className="ms-3"
-              onClick={toggleTheme}
+              onClick={handleThemeToggle}
               style={{ backgroundColor: "transparent", border: "none" }}
             >
               {theme === "dark" ? (
@@ -82,6 +96,7 @@ function PortfolioNavbar() {
       </Container>
     </Navbar>
   );
-}
+};
 
+// Export main navbar component
 export default PortfolioNavbar;

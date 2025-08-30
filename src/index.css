@@ -1,4 +1,5 @@
 :root {
+  /* Base font and color variables */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -14,6 +15,7 @@
 }
 
 a {
+  /* Link styling */
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
@@ -23,6 +25,7 @@ a:hover {
 }
 
 body {
+  /* Body layout and minimum size */
   margin: 0;
   display: flex;
   place-items: center;
@@ -31,11 +34,13 @@ body {
 }
 
 h1 {
+  /* Main heading style */
   font-size: 3.2em;
   line-height: 1.1;
 }
 
 button {
+  /* Button base styling and transitions */
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -55,6 +60,7 @@ button:focus-visible {
 }
 
 @media (prefers-color-scheme: light) {
+  /* Light mode overrides */
   :root {
     color: #213547;
     background-color: #ffffff;

@@ -1,4 +1,5 @@
 :root {
+  /* Default dark theme variables */
   --bg-color: #1f242d;
   --second-bg-color: #323946;
   --text-color: #fff;
@@ -8,6 +9,7 @@
 }
 
 .light-theme {
+  /* Light theme variables override */
   --bg-color: #f9f9f9;
   --second-bg-color: #e6e6e6;
   --text-color: #222;
@@ -16,7 +18,7 @@
   --btn-text: #fff;
 }
 
-/* Sections */
+/* Main content section styling */
 .section {
   min-height: 100vh;
   padding: 4rem 2rem;
@@ -27,48 +29,55 @@
   padding-bottom: 5vh;
 }
 
-/* Smooth scroll */
+/* Enable smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
 }
 
-/* Navbar styling */
+/* Navbar base styling */
 .custom-navbar {
   background-color: var(--bg-color) !important;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar-scrolled {
+  /* Add shadow when navbar is scrolled */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .custom-navbar .container {
+  /* Ensure dropdowns and overlays are visible */
   overflow: visible !important;
 }
 
 .custom-navbar .navbar-brand,
 .custom-navbar .nav-link {
+  /* Navbar brand and link color transitions */
   color: var(--text-color) !important;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .custom-navbar .navbar-brand:hover {
+  /* Brand hover effect */
   color: var(--main-color);
   transform: scale(1.05);
 }
 
 .custom-navbar .nav-link {
+  /* Nav link base styling and transitions */
   position: relative;
   padding: 0.5rem 1rem;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .custom-navbar .nav-link:hover {
+  /* Nav link hover effect */
   color: var(--main-color) !important;
   transform: translateY(-2px);
 }
 
 .custom-navbar .nav-link::after {
+  /* Animated underline for nav links */
   content: "";
   position: absolute;
   left: 0;
@@ -80,25 +89,28 @@ html {
 }
 
 .custom-navbar .nav-link:hover::after {
+  /* Show underline on hover */
   width: 100%;
 }
 
 .custom-navbar .nav-link.active {
+  /* Active nav link styling */
   color: var(--main-color) !important;
   font-weight: bold;
   border-bottom: 2px solid var(--main-color);
 }
 
-/* Theme toggle button */
 .custom-navbar .btn svg {
+  /* Theme toggle icon transition */
   transition: transform 0.3s ease;
 }
 
 .custom-navbar .btn:active svg {
+  /* Icon rotate on button press */
   transform: rotate(20deg);
 }
 
-/* Hamburger toggler container */
+/* Hamburger menu toggler styling */
 .custom-toggler {
   width: 32px;
   height: 32px;
@@ -112,7 +124,7 @@ html {
   position: relative;
 }
 
-/* Bars for Plus/Minus */
+/* Hamburger bars styling */
 .custom-toggler .bar {
   position: absolute;
   width: 22px;
@@ -121,21 +133,29 @@ html {
   transition: all 0.3s ease;
 }
 
-/* Horizontal bar (always visible) */
+/* Horizontal bar for toggler */
 .custom-toggler .bar1 {
   transform: rotate(0deg);
 }
 
-/* Vertical bar (for plus) */
+/* Vertical bar for toggler (plus sign) */
 .custom-toggler .bar2 {
   transform: rotate(90deg);
 }
 
-/* Animate to minus when open */
+/* Animate toggler to minus when open */
 .custom-toggler.open .bar1 {
-  transform: rotate(0deg); /* stays horizontal */
+  transform: rotate(0deg);
 }
 
 .custom-toggler.open .bar2 {
-  opacity: 0; /* vertical disappears */
+  /* Hide vertical bar when open */
+  opacity: 0;
+}
+
+@media (min-width: 992px) {
+  /* Hide hamburger toggler on large screens */
+  .custom-toggler {
+    display: none !important;
+  }
 }

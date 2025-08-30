@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PortfolioNavbar from "./components/Navbar";
 import Home from "./sections/Home";
 import About from "./sections/About";
@@ -7,29 +7,47 @@ import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0);
+// Main App component
+const App = () => {
+  // Theme state (dark/light), persisted in localStorage
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "dark"
+  );
 
+  // Update body class and persist theme on change
+  useEffect(() => {
+    document.body.className = theme === "light" ? "light-theme" : "";
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  // Render main layout and sections
   return (
-    <main>
-      <PortfolioNavbar />
+    <main className={theme}>
+      <PortfolioNavbar theme={theme} setTheme={setTheme} />
+
+      {/* Home section */}
       <section id="home">
-        <Home />
+        <Home theme={theme} />
       </section>
+      {/* About section */}
       <section id="about">
-        <About />
+        <About theme={theme} />
       </section>
+      {/* Skills section */}
       <section id="skills">
-        <Skills />
+        <Skills theme={theme} />
       </section>
+      {/* Projects section */}
       <section id="projects">
-        <Projects />
+        <Projects theme={theme} />
       </section>
+      {/* Contact section */}
       <section id="contact">
-        <Contact />
+        <Contact theme={theme} />
       </section>
     </main>
   );
-}
+};
 
+// Export App component
 export default App;
