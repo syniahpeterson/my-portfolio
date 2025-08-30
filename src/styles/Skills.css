@@ -1,0 +1,65 @@
+/* Global box-sizing for layout consistency */
+* {
+  box-sizing: border-box;
+}
+
+/* Skills section base styles */
+.skills {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 6rem 2rem; /* extra top/bottom spacing */
+  text-align: center;
+  overflow-x: hidden; /* prevent horizontal scroll on mobile */
+}
+
+/* Section title styling */
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--main-color);
+}
+
+/* Skills grid layout */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  width: 100%;
+}
+
+/* Individual skill card styling */
+.skill-card {
+  background: var(--second-bg-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--main-color);
+  width: 120px; /* fixed width for consistency */
+  height: 140px; /* fixed height for consistency */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  /* Skill card hover effect */
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 0 20px var(--main-color), 0 0 40px var(--main-color);
+}
+
+/* Skill icon styling */
+.icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  text-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color);
+}
+
+/* Skill label styling */
+.skill-label {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  text-align: center;
+}
