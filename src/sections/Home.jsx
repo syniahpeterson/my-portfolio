@@ -1,11 +1,13 @@
 import "../styles/Home.css";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiFreecodecamp } from "react-icons/si";
 
 // Home section component (landing area)
 const Home = ({ theme }) => {
   return (
     <div className={`home-section ${theme}`}>
       <div className="home-container">
-        {/* Profile image area */}
+        {/* Profile image and glow */}
         <div className="home-image-container">
           <div className="image-glow"></div>
           <img
@@ -15,7 +17,7 @@ const Home = ({ theme }) => {
           />
         </div>
 
-        {/* Main text content */}
+        {/* Main text and highlights */}
         <div className="home-text">
           <h1>Hi, I’m Syniah Peterson</h1>
           <p className="subtitle">
@@ -26,9 +28,48 @@ const Home = ({ theme }) => {
             into polished websites.
           </p>
           <p className="highlights">
-            4 FCC Certifications • 2 Freelance Projects • React, HTML, CSS, JS
+            4 FCC Certifications • 2 Freelance Projects • React, HTML, CSS, JS,
+            Bootstrap
           </p>
-          {/* Call-to-action button */}
+
+          {/* Social links row */}
+          <div className="home-socials">
+            <a
+              href="https://github.com/syniahpeterson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/syniahpeterson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://www.freecodecamp.org/syniahpeterson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <SiFreecodecamp />
+            </a>
+          </div>
+
+          {/* Resume download button */}
+          <a
+            href="/Syniah Peterson Resume.pdf"
+            download
+            className="resume-btn btn btn-main mt-3"
+          >
+            Download Resume
+          </a>
+
+          {/* Call-to-action button to projects */}
           <a href="#projects" className="btn btn-main mt-3">
             View My Work
           </a>
@@ -38,5 +79,5 @@ const Home = ({ theme }) => {
   );
 };
 
-// Export Home section
+// Export Home section component
 export default Home;
