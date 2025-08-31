@@ -5,7 +5,7 @@ import useScrollSpy from "../hooks/useScrollSpy";
 
 const PortfolioNavbar = ({ theme, setTheme }) => {
   // Section IDs for navigation
-  const sections = ["home", "about", "skills", "projects", "contact"];
+  const sections = ["home", "about", "skills", "projects", "certifications", "contact"];
   // Track which section is currently active (for scroll spy)
   const activeSection = useScrollSpy(sections, 80);
 
