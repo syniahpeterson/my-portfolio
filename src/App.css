@@ -1,4 +1,32 @@
 :root {
+  /* Theme variables (dark by default) */
+  --bg-color: #1f242d;
+  --second-bg-color: #323946;
+  --text-color: #fff;
+  --main-color: #8884ff;
+  --btn-color: #8884ff;
+  --btn-text: #fff;
+}
+
+.light-theme {
+  /* Light theme overrides */
+  --bg-color: #f9f9f9;
+  --second-bg-color: #e6e6e6;
+  --text-color: #222;
+  --main-color: #6c63ff;
+  --btn-color: #6c63ff;
+  --btn-text: #fff;
+}
+
+/* Prevent unwanted horizontal scroll on all main containers */
+html,
+body,
+#root,
+main {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+:root {
   /* Default dark theme variables */
   --bg-color: #1f242d;
   --second-bg-color: #323946;
@@ -18,66 +46,58 @@
   --btn-text: #fff;
 }
 
-/* Main content section styling */
+/* Section layout for main content blocks */
 .section {
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 5vh 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 5vh;
 }
 
-/* Enable smooth scrolling for anchor links */
+/* Smooth anchor scrolling for all links */
 html {
   scroll-behavior: smooth;
 }
 
-/* Navbar base styling */
+/* --- Navbar Styles --- */
 .custom-navbar {
   background-color: var(--bg-color) !important;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar-scrolled {
-  /* Add shadow when navbar is scrolled */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .custom-navbar .container {
-  /* Ensure dropdowns and overlays are visible */
   overflow: visible !important;
 }
 
 .custom-navbar .navbar-brand,
 .custom-navbar .nav-link {
-  /* Navbar brand and link color transitions */
   color: var(--text-color) !important;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .custom-navbar .navbar-brand:hover {
-  /* Brand hover effect */
   color: var(--main-color);
   transform: scale(1.05);
 }
 
 .custom-navbar .nav-link {
-  /* Nav link base styling and transitions */
   position: relative;
   padding: 0.5rem 1rem;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .custom-navbar .nav-link:hover {
-  /* Nav link hover effect */
   color: var(--main-color) !important;
   transform: translateY(-2px);
 }
 
 .custom-navbar .nav-link::after {
-  /* Animated underline for nav links */
   content: "";
   position: absolute;
   left: 0;
@@ -89,28 +109,24 @@ html {
 }
 
 .custom-navbar .nav-link:hover::after {
-  /* Show underline on hover */
   width: 100%;
 }
 
 .custom-navbar .nav-link.active {
-  /* Active nav link styling */
   color: var(--main-color) !important;
   font-weight: bold;
   border-bottom: 2px solid var(--main-color);
 }
 
 .custom-navbar .btn svg {
-  /* Theme toggle icon transition */
   transition: transform 0.3s ease;
 }
 
 .custom-navbar .btn:active svg {
-  /* Icon rotate on button press */
   transform: rotate(20deg);
 }
 
-/* Hamburger menu toggler styling */
+/* --- Hamburger Menu Styles --- */
 .custom-toggler {
   width: 32px;
   height: 32px;
@@ -124,7 +140,6 @@ html {
   position: relative;
 }
 
-/* Hamburger bars styling */
 .custom-toggler .bar {
   position: absolute;
   width: 22px;
@@ -133,28 +148,23 @@ html {
   transition: all 0.3s ease;
 }
 
-/* Horizontal bar for toggler */
 .custom-toggler .bar1 {
   transform: rotate(0deg);
 }
 
-/* Vertical bar for toggler (plus sign) */
 .custom-toggler .bar2 {
   transform: rotate(90deg);
 }
 
-/* Animate toggler to minus when open */
 .custom-toggler.open .bar1 {
   transform: rotate(0deg);
 }
 
 .custom-toggler.open .bar2 {
-  /* Hide vertical bar when open */
   opacity: 0;
 }
 
 @media (min-width: 992px) {
-  /* Hide hamburger toggler on large screens */
   .custom-toggler {
     display: none !important;
   }

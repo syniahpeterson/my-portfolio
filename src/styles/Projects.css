@@ -1,0 +1,169 @@
+.projects-section {
+  background-color: var(--second-bg-color);
+  color: var(--text-color);
+  padding: 4rem 1rem;
+}
+
+.projects-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--main-color);
+}
+
+/* Legend */
+.projects-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cert-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+.cert-badge {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+/* Scrollable row */
+.projects-row {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  border-radius: 1rem;
+  scroll-behavior: smooth;
+}
+
+.projects-row::-webkit-scrollbar {
+  height: 8px;
+}
+.projects-row::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 4px;
+}
+.projects-row::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+}
+
+/* Project Card */
+.project-card {
+  flex: 0 0 auto;
+  width: 220px;
+  background-color: var(--second-bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 12px;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover,
+.project-card:active {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--main-color), 0 0 40px var(--main-color);
+}
+
+/* Badge inside card */
+.project-badge {
+  font-size: 0.75rem;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+/* Card content */
+.project-card-title {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--main-color);
+}
+
+/* --- Projects Section Main Container --- */
+.project-card-desc {
+  font-size: 0.85rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+/* Links row */
+.project-card-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-card-links a {
+  color: var(--main-color);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.project-card-links a:hover {
+  transform: translateY(-3px);
+  color: var(--text-color);
+}
+
+/* Project Image */
+.project-img {
+  width: 100%; /* fill the card width */
+  height: 120px; /* fixed height on desktop for uniformity */
+  object-fit: cover; /* maintain aspect ratio, crop if needed */
+  border-radius: 8px; /* rounded corners */
+  margin-bottom: 0.75rem; /* spacing from title/badge */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for image */
+.project-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .project-img {
+    height: 100px; /* slightly smaller height for medium screens */
+  }
+}
+
+@media (max-width: 500px) {
+  .project-img {
+    height: 80px; /* smaller height for small screens */
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-row {
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  .project-card {
+    width: 180px;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-card {
+    width: 140px;
+    padding: 0.6rem;
+  }
+}

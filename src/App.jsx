@@ -4,7 +4,9 @@ import Home from "./sections/Home";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
+import Certifications from "./sections/Certifications";
 import Contact from "./sections/Contact";
+import Footer from "./components/Footer";
 import "./App.css";
 
 // Main App component
@@ -41,9 +43,16 @@ const App = () => {
       <section id="projects">
         <Projects theme={theme} />
       </section>
+      {/* Certification section */}
+      <section id="certifications">
+        <Certifications theme={theme} />
+      </section>
       {/* Contact section */}
       <section id="contact">
         <Contact theme={theme} />
+      </section>
+      <section id="footer">
+        <Footer theme={theme} />
       </section>
     </main>
   );
