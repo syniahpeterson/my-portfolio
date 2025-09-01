@@ -11,7 +11,7 @@ import {
 import { SiRedux } from "react-icons/si";
 import "../styles/skills.css";
 
-// Skills section component
+// Skills: Technologies and tools grid
 const Skills = () => {
   // List of skills and their icons
   const skills = [
@@ -25,7 +25,7 @@ const Skills = () => {
     { name: "GitHub", icon: <FaGithub color="#fff" /> },
   ];
 
-  // Render skills grid
+  // Render skills grid UI
   return (
     <section className="skills" id="skills">
       <h2 className="section-title">Skills</h2>
@@ -43,5 +43,4 @@ const Skills = () => {
   );
 };
 
-// Export Skills section component
 export default Skills;

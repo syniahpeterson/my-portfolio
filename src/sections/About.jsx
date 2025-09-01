@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/About.css";
 import aboutImg from "../assets/about-pic.jpg";
 
-// About section component
+// About: Personal intro, image, and highlights
 const About = ({ theme }) => {
   return (
     <section id="about" className={`about-section ${theme}`}>
@@ -12,10 +12,9 @@ const About = ({ theme }) => {
           <img src={aboutImg} alt="About me graphic" className="about-img" />
         </div>
 
-        {/* Main content (right column) */}
+        {/* Main content: title, intro paragraphs, highlights */}
         <div className="about-content">
           <h2 className="about-title">About Me</h2>
-          {/* Intro paragraphs */}
           <p className="about-text">
             Hi, I'm Syniah — a passionate frontend developer with a strong
             foundation in React, JavaScript, and modern web design. I love
@@ -29,7 +28,7 @@ const About = ({ theme }) => {
             🚀
           </p>
 
-          {/* Highlight cards */}
+          {/* Highlight cards: strengths */}
           <div className="about-highlights">
             <div className="highlight-card">⚡ Fast Learner</div>
             <div className="highlight-card">🎨 Creative Designer</div>
@@ -41,5 +40,4 @@ const About = ({ theme }) => {
   );
 };
 
-// Export About section component
 export default About;

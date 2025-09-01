@@ -2,12 +2,12 @@ import "../styles/Home.css";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiFreecodecamp } from "react-icons/si";
 
-// Home section component (landing area)
+// Home: Landing section with profile, highlights, and social links
 const Home = ({ theme }) => {
   return (
     <div className={`home-section ${theme}`}>
       <div className="home-container">
-        {/* Profile image and glow */}
+        {/* Profile image and animated glow */}
         <div className="home-image-container">
           <div className="image-glow"></div>
           <img
@@ -17,7 +17,7 @@ const Home = ({ theme }) => {
           />
         </div>
 
-        {/* Main text and highlights */}
+        {/* Main text: name, subtitle, description, highlights */}
         <div className="home-text">
           <h1>Hi, I’m Syniah Peterson</h1>
           <p className="subtitle">
@@ -32,7 +32,7 @@ const Home = ({ theme }) => {
             Bootstrap
           </p>
 
-          {/* Social links row */}
+          {/* Social links: GitHub, LinkedIn, freeCodeCamp */}
           <div className="home-socials">
             <a
               href="https://github.com/syniahpeterson"
@@ -79,5 +79,4 @@ const Home = ({ theme }) => {
   );
 };
 
-// Export Home section component
 export default Home;

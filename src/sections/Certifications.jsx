@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Certifications.css";
 import { FaFreeCodeCamp } from "react-icons/fa";
 
+// Certifications: List of earned certificates with links
 const Certifications = () => {
   const certifications = [
     {
@@ -30,6 +31,7 @@ const Certifications = () => {
     },
   ];
 
+  // Render certifications grid
   return (
     <section id="certifications" className="certifications-section">
       <h2>Certifications</h2>
