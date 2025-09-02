@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/Projects.css";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-// React, styles, images, and UI libraries
 const certifications = [
   {
     name: "Responsive Web Design",
@@ -19,7 +18,8 @@ const certifications = [
   { name: "Freelance Projects", color: "#4cc9f0" },
 ];
 
-// Data for projects; each card has title, description, and links
+// Projects.jsx: Project cards, certifications legend, and scroll-triggered animation
+// Projects data: title, description, cert, links, and image for each project
 const projects = [
   {
     title: "Survey Form",
@@ -211,17 +211,46 @@ const projects = [
   },
 ];
 
-const Projects = () => {
-  return (
-    <section className="projects-section second-bg" id="projects">
-      <h2 className="projects-title">Projects</h2>
+const Projects = ({ theme }) => {
+  const sectionRef = useRef(null);
+  const [active, setActive] = useState(false);
 
-      {/* Certifications Legend */}
+  // IntersectionObserver for scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setActive(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => sectionRef.current && observer.unobserve(sectionRef.current);
+  }, []);
+
+  // Ensure scroll animation updates on theme change
+  useEffect(() => {
+    const handleThemeChange = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        setActive(inView);
+      }
+    };
+    window.addEventListener("themechange", handleThemeChange);
+    return () => window.removeEventListener("themechange", handleThemeChange);
+  }, [sectionRef]);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="projects"
+      className={`projects-section ${theme} ${active ? "active" : ""}`}
+    >
+      <h2 className="projects-title">Projects</h2> {/* Section title */}
+      {/* Certifications legend for project badges */}
       <div className="projects-legend">
         {certifications.map((cert, i) => (
           <a
             key={i}
-            href={cert.link}
+            href={cert.link || "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="cert-legend"
@@ -234,14 +263,13 @@ const Projects = () => {
           </a>
         ))}
       </div>
-
-      {/* Scrollable Projects Row */}
-      <div className="projects-row bg-color">
+      {/* Scrollable row of project cards */}
+      <div className="projects-row">
         {projects.map((proj, idx) => {
           const certColor =
             certifications.find((c) => c.name === proj.cert)?.color || "#fff";
           return (
-            <div className="project-card second-bg" key={idx}>
+            <div className="project-card" key={idx}>
               <div
                 className="project-badge"
                 style={{ backgroundColor: certColor }}
@@ -269,5 +297,4 @@ const Projects = () => {
   );
 };
 
-// Export Projects section
 export default Projects;

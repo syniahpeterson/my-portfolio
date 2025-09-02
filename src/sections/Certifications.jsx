@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/Certifications.css";
 import { FaFreeCodeCamp } from "react-icons/fa";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
-// Certifications: List of earned certificates with links
-const Certifications = () => {
+// Certifications.jsx: FCC certifications, cards, and scroll-triggered animation
+const Certifications = ({ theme }) => {
+  const sectionRef = useScrollAnimation(0.1);
+
+  // Ensure scroll animation updates on theme change
+  useEffect(() => {
+    const handleThemeChange = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (inView) {
+          sectionRef.current.classList.add("active");
+        } else {
+          sectionRef.current.classList.remove("active");
+        }
+      }
+    };
+    window.addEventListener("themechange", handleThemeChange);
+    return () => window.removeEventListener("themechange", handleThemeChange);
+  }, [sectionRef]);
+
+  // Certifications data: title, description, and link for each FCC cert
   const certifications = [
     {
       title: "Responsive Web Design",
@@ -31,11 +52,16 @@ const Certifications = () => {
     },
   ];
 
-  // Render certifications grid
   return (
-    <section id="certifications" className="certifications-section">
-      <h2>Certifications</h2>
+    <section
+      id="certifications"
+      className={`certifications-section ${theme}`}
+      ref={sectionRef}
+    >
+      <h2>Certifications</h2> {/* Section title */}
       <div className="certifications-flex">
+        {" "}
+        {/* Certification cards grid */}
         {certifications.map((cert, index) => (
           <div className="cert-card" key={index}>
             <FaFreeCodeCamp className="cert-icon" />

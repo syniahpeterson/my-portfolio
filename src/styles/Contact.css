@@ -1,11 +1,18 @@
-/* Contact section container styles */
 .contact-section {
   background-color: var(--second-bg-color);
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeInUp 1s ease forwards;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.contact-section.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Section title */
@@ -13,10 +20,9 @@
   font-size: 2.5rem;
   color: var(--main-color);
   margin-bottom: 2rem;
-  text-align: center;
 }
 
-/* Form container */
+/* Form styling */
 .contact-form {
   width: 100%;
   max-width: 900px;
@@ -25,7 +31,6 @@
   gap: 1.5rem;
 }
 
-/* Responsive input row layout */
 .input-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -38,14 +43,21 @@
   }
 }
 
-/* Input group for each field */
 .input-group {
   position: relative;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
 }
 
-/* Input and textarea styles */
+/* Animate children with delay when section active */
+.contact-section.active .input-group {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .input-group input,
 .input-group textarea {
   width: 100%;
@@ -58,7 +70,6 @@
   transition: all 0.3s ease;
 }
 
-/* Icon inside input fields */
 .input-group .icon {
   position: absolute;
   left: 10px;
@@ -67,20 +78,16 @@
   color: var(--main-color);
   font-size: 1.25rem;
   pointer-events: none;
-  transition: all 0.3s ease;
 }
 
-/* Extra padding for message textarea */
 .input-group.message-group textarea {
   padding-top: 1.5rem;
 }
 
-/* Error state for inputs */
 .input-error {
   border-color: #ff4c60;
 }
 
-/* Error message styling */
 .error-message {
   color: #ff4c60;
   font-size: 0.85rem;
@@ -88,7 +95,6 @@
   animation: shake 0.4s;
 }
 
-/* Submit button styles */
 button {
   padding: 0.75rem 2rem;
   border: none;
@@ -109,50 +115,17 @@ button:hover:not(:disabled) {
   box-shadow: 0 0 10px var(--main-color);
 }
 
-/* Success message after form submission */
 .form-success {
   margin-top: 1rem;
   font-size: 1rem;
   color: #4bb543;
   text-align: center;
-  animation: fadeIn 0.5s ease forwards;
 }
 
-/* Animations for error and entrance */
 @keyframes shake {
-  0% {
-    transform: translateX(0px);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-  75% {
-    transform: translateX(-5px);
-  }
-  100% {
-    transform: translateX(0px);
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }

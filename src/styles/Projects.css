@@ -1,9 +1,20 @@
+/* Projects section: main container and entrance animation */
 .projects-section {
   background-color: var(--second-bg-color);
   color: var(--text-color);
   padding: 4rem 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
 }
 
+/* Animate section in on scroll */
+.projects-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section title styles */
 .projects-title {
   text-align: center;
   font-size: 2.5rem;
@@ -11,7 +22,7 @@
   color: var(--main-color);
 }
 
-/* Legend */
+/* Certifications legend row */
 .projects-legend {
   display: flex;
   flex-wrap: wrap;
@@ -20,6 +31,7 @@
   margin-bottom: 2rem;
 }
 
+/* Individual legend item styles */
 .cert-legend {
   display: flex;
   align-items: center;
@@ -29,13 +41,14 @@
   font-size: 0.95rem;
 }
 
+/* Color badge for legend */
 .cert-badge {
   width: 16px;
   height: 16px;
   border-radius: 4px;
 }
 
-/* Scrollable row */
+/* Scrollable row of project cards */
 .projects-row {
   display: flex;
   gap: 1.5rem;
@@ -46,18 +59,21 @@
   scroll-behavior: smooth;
 }
 
+/* Custom scrollbar styles */
 .projects-row::-webkit-scrollbar {
   height: 8px;
 }
+/* Scrollbar thumb styles */
 .projects-row::-webkit-scrollbar-thumb {
   background-color: var(--main-color);
   border-radius: 4px;
 }
+/* Scrollbar track styles */
 .projects-row::-webkit-scrollbar-track {
   background-color: var(--bg-color);
 }
 
-/* Project Card */
+/* Individual project card styles and animation */
 .project-card {
   flex: 0 0 auto;
   width: 220px;
@@ -70,16 +86,26 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease,
+    transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
+/* Animate project cards in when parent section is active */
+.projects-section.active .project-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover and active effect */
 .project-card:hover,
 .project-card:active {
   transform: translateY(-5px);
   box-shadow: 0 0 20px var(--main-color), 0 0 40px var(--main-color);
 }
 
-/* Badge inside card */
+/* Certification badge inside card */
 .project-badge {
   font-size: 0.75rem;
   color: #fff;
@@ -89,7 +115,7 @@
   margin-bottom: 0.75rem;
 }
 
-/* Card content */
+/* Card title styles */
 .project-card-title {
   font-size: 1rem;
   text-align: center;
@@ -97,60 +123,49 @@
   color: var(--main-color);
 }
 
-/* --- Projects Section Main Container --- */
+/* Card description styles */
 .project-card-desc {
   font-size: 0.85rem;
   text-align: center;
   margin-bottom: 0.75rem;
 }
 
-/* Links row */
+/* Row of project links (GitHub, demo) */
 .project-card-links {
   display: flex;
   gap: 0.5rem;
 }
 
+/* Project link icon styles */
 .project-card-links a {
   color: var(--main-color);
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
+/* Project link icon hover effect */
 .project-card-links a:hover {
   transform: translateY(-3px);
   color: var(--text-color);
 }
 
-/* Project Image */
+/* Project image styles and hover effect */
 .project-img {
-  width: 100%; /* fill the card width */
-  height: 120px; /* fixed height on desktop for uniformity */
-  object-fit: cover; /* maintain aspect ratio, crop if needed */
-  border-radius: 8px; /* rounded corners */
-  margin-bottom: 0.75rem; /* spacing from title/badge */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* subtle shadow */
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect for image */
+/* Project image hover effect */
 .project-img:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive adjustments for mobile */
-@media (max-width: 768px) {
-  .project-img {
-    height: 100px; /* slightly smaller height for medium screens */
-  }
-}
-
-@media (max-width: 500px) {
-  .project-img {
-    height: 80px; /* smaller height for small screens */
-  }
-}
-
-/* Responsive */
+/* Responsive adjustments for tablets and below */
 @media (max-width: 768px) {
   .projects-row {
     gap: 1rem;
@@ -159,11 +174,18 @@
   .project-card {
     width: 180px;
   }
+  .project-img {
+    height: 100px;
+  }
 }
 
+/* Responsive adjustments for mobile */
 @media (max-width: 500px) {
   .project-card {
     width: 140px;
     padding: 0.6rem;
+  }
+  .project-img {
+    height: 80px;
   }
 }

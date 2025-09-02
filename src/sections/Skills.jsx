@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -10,10 +10,30 @@ import {
 } from "react-icons/fa";
 import { SiRedux } from "react-icons/si";
 import "../styles/skills.css";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
-// Skills: Technologies and tools grid
-const Skills = () => {
-  // List of skills and their icons
+// Skills.jsx: Technology icons, skill cards, and scroll-triggered animation
+const Skills = ({ theme }) => {
+  const skillsRef = useScrollAnimation(0.1);
+
+  // Ensure scroll animation updates on theme change
+  useEffect(() => {
+    const handleThemeChange = () => {
+      if (skillsRef.current) {
+        const rect = skillsRef.current.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (inView) {
+          skillsRef.current.classList.add("active");
+        } else {
+          skillsRef.current.classList.remove("active");
+        }
+      }
+    };
+    window.addEventListener("themechange", handleThemeChange);
+    return () => window.removeEventListener("themechange", handleThemeChange);
+  }, [skillsRef]);
+
+  // Skills data: name and icon for each technology
   const skills = [
     { name: "HTML5", icon: <FaHtml5 color="#E34F26" /> },
     { name: "CSS3", icon: <FaCss3Alt color="#1572B6" /> },
@@ -25,16 +45,15 @@ const Skills = () => {
     { name: "GitHub", icon: <FaGithub color="#fff" /> },
   ];
 
-  // Render skills grid UI
   return (
-    <section className="skills" id="skills">
-      <h2 className="section-title">Skills</h2>
+    <section className={`skills ${theme}`} id="skills" ref={skillsRef}>
+      <h2 className="section-title">Skills</h2> {/* Section title */}
       <div className="skills-grid">
+        {" "}
+        {/* Skill cards grid */}
         {skills.map((skill, i) => (
           <div className="skill-card" key={i}>
-            {/* Skill icon */}
             <div className="icon">{skill.icon}</div>
-            {/* Skill name */}
             <div className="skill-name">{skill.name}</div>
           </div>
         ))}

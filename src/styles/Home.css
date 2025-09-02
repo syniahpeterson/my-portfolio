@@ -1,4 +1,4 @@
-/* Home Section Base Styles */
+/* Home section: main landing area */
 .home-section {
   width: 100vw;
   min-height: 100vh;
@@ -9,9 +9,20 @@
   box-sizing: border-box;
   background-color: var(--bg-color);
   color: var(--text-color);
+  overflow: hidden;
 }
 
-/* Centers content and keeps it responsive */
+/* Animate text on scroll into view */
+.home-section.active .home-text h1,
+.home-section.active .home-text .subtitle,
+.home-section.active .home-text .description,
+.home-section.active .home-text .highlights {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease-out;
+}
+
+/* Container for all home content */
 .home-container {
   display: flex;
   flex-direction: column;
@@ -22,12 +33,13 @@
   padding: 0 1rem;
 }
 
-/* Profile image + glow effect */
+/* Profile image and animated glow */
 .home-image-container {
   position: relative;
   margin-bottom: 2rem;
 }
 
+/* Glowing effect behind profile image */
 .image-glow {
   position: absolute;
   top: 50%;
@@ -42,6 +54,7 @@
   animation: pulseGlow 3s ease-in-out infinite;
 }
 
+/* Animation for glowing effect */
 @keyframes pulseGlow {
   0%,
   100% {
@@ -54,7 +67,7 @@
   }
 }
 
-/* Floating profile image */
+/* Profile image styling and float animation */
 .home-image {
   width: 200px;
   height: 200px;
@@ -64,13 +77,14 @@
   position: relative;
   z-index: 1;
   animation: floatImage 4s ease-in-out infinite;
-  transition: transform 0.3s ease;
 }
 
+/* Hover effect for profile image */
 .home-image:hover {
   transform: translateY(-5px) scale(1.05);
 }
 
+/* Floating animation for profile image */
 @keyframes floatImage {
   0% {
     transform: translateY(0);
@@ -83,47 +97,25 @@
   }
 }
 
-/* Text + Animations */
+/* Text fade-in and initial state */
 .home-text h1,
 .home-text .subtitle,
 .home-text .description,
 .home-text .highlights {
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s forwards;
 }
 
-.home-text h1 {
-  animation-delay: 0.2s;
-}
-.home-text .subtitle {
-  animation-delay: 0.4s;
-}
-.home-text .description {
-  animation-delay: 0.6s;
-}
-.home-text .highlights {
-  animation-delay: 0.8s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Main text styles */
 .home-text h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
-
 .home-text .subtitle {
   font-size: 1.25rem;
   margin-bottom: 1rem;
   color: var(--main-color);
 }
-
 .home-text .description,
 .home-text .highlights {
   font-size: 1rem;
@@ -131,7 +123,16 @@
   color: var(--text-color);
 }
 
-/* Buttons */
+/* Resume and projects buttons row */
+.home-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Main button styles */
 .btn-main {
   display: inline-block;
   background-color: var(--btn-color);
@@ -140,13 +141,12 @@
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   border-radius: 6px;
-  margin: 0.5rem;
-  transition: all 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  animation: floatButton 3s ease-in-out infinite;
-  cursor: pointer;
+  transition: all 0.3s ease;
   text-decoration: none;
+  cursor: pointer;
 }
 
+/* Button hover effect */
 .btn-main:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(136, 132, 255, 0.4);
@@ -154,17 +154,7 @@
   color: var(--btn-text);
 }
 
-@keyframes floatButton {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-/* Social Icons */
+/* Social links row */
 .home-socials {
   display: flex;
   align-items: center;
@@ -173,28 +163,28 @@
   margin-top: 20px;
 }
 
+/* Social icon styles */
 .social-link {
   font-size: 2rem;
   color: var(--main-color);
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
+/* Social icon hover effect */
 .social-link:hover {
   color: var(--text-color);
   transform: translateY(-5px);
 }
 
-/* Responsive Design */
+/* Responsive adjustments for mobile */
 @media (max-width: 768px) {
   .home-text h1 {
     font-size: 2rem;
   }
-
   .home-image {
     width: 150px;
     height: 150px;
   }
-
   .image-glow {
     width: 180px;
     height: 180px;

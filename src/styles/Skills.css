@@ -3,16 +3,24 @@
   box-sizing: border-box;
 }
 
-/* Skills section base styles */
+/* Skills section: main container and entrance animation */
 .skills {
   background-color: var(--bg-color);
   color: var(--text-color);
-  padding: 6rem 2rem; /* extra top/bottom spacing */
+  padding: 6rem 2rem;
   text-align: center;
-  overflow-x: hidden; /* prevent horizontal scroll on mobile */
+  overflow-x: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
 }
 
-/* Section title styling */
+.skills.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section title styles */
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -28,28 +36,36 @@
   width: 100%;
 }
 
-/* Individual skill card styling */
+/* Individual skill card styles and animation */
 .skill-card {
   background: var(--second-bg-color);
   padding: 1.5rem;
   border-radius: 12px;
   border: 2px solid var(--main-color);
-  width: 120px; /* fixed width for consistency */
-  height: 140px; /* fixed height for consistency */
+  width: 120px;
+  height: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Animate skill cards in on scroll */
+.skills.active .skill-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease-out;
 }
 
 .skill-card:hover {
-  /* Skill card hover effect */
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 0 20px var(--main-color), 0 0 40px var(--main-color);
 }
 
-/* Skill icon styling */
+/* Skill icon styles */
 .icon {
   font-size: 3rem;
   margin-bottom: 0.5rem;
@@ -57,8 +73,8 @@
   text-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color);
 }
 
-/* Skill label styling */
-.skill-label {
+/* Skill name label styles */
+.skill-name {
   font-size: 0.9rem;
   color: var(--text-color);
   text-align: center;

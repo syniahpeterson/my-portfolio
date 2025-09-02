@@ -1,13 +1,34 @@
 import "../styles/Home.css";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiFreecodecamp } from "react-icons/si";
+import useScrollAnimation from "../hooks/useScrollAnimation";
+import React, { useEffect } from "react";
 
-// Home: Landing section with profile, highlights, and social links
+// Home.jsx: Landing section with profile, intro, social links, and scroll-triggered animation
 const Home = ({ theme }) => {
+  const homeRef = useScrollAnimation(0.1);
+
+  // Ensure scroll animation updates on theme change
+  useEffect(() => {
+    const handleThemeChange = () => {
+      if (homeRef.current) {
+        const rect = homeRef.current.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (inView) {
+          homeRef.current.classList.add("active");
+        } else {
+          homeRef.current.classList.remove("active");
+        }
+      }
+    };
+    window.addEventListener("themechange", handleThemeChange);
+    return () => window.removeEventListener("themechange", handleThemeChange);
+  }, [homeRef]);
+
   return (
-    <div className={`home-section ${theme}`}>
+    <section ref={homeRef} className={`home-section ${theme}`}>
       <div className="home-container">
-        {/* Profile image and animated glow */}
+        {/* Profile image and glow effect */}
         <div className="home-image-container">
           <div className="image-glow"></div>
           <img
@@ -17,7 +38,7 @@ const Home = ({ theme }) => {
           />
         </div>
 
-        {/* Main text: name, subtitle, description, highlights */}
+        {/* Intro text, highlights, and social links */}
         <div className="home-text">
           <h1>Hi, I’m Syniah Peterson</h1>
           <p className="subtitle">
@@ -60,22 +81,22 @@ const Home = ({ theme }) => {
             </a>
           </div>
 
-          {/* Resume download button */}
-          <a
-            href="/Syniah Peterson Resume.pdf"
-            download
-            className="resume-btn btn btn-main mt-3"
-          >
-            Download Resume
-          </a>
-
-          {/* Call-to-action button to projects */}
-          <a href="#projects" className="btn btn-main mt-3">
-            View My Work
-          </a>
+          {/* Resume download and projects navigation buttons */}
+          <div className="home-buttons">
+            <a
+              href="/Syniah Peterson Resume.pdf"
+              download
+              className="btn btn-main"
+            >
+              Download Resume
+            </a>
+            <a href="#projects" className="btn btn-main">
+              View My Work
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

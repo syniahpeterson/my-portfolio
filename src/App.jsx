@@ -1,3 +1,4 @@
+// App.jsx: Main portfolio layout, theme management, and section rendering
 import { useState, useEffect } from "react";
 import PortfolioNavbar from "./components/Navbar";
 import Home from "./sections/Home";
@@ -8,18 +9,18 @@ import Certifications from "./sections/Certifications";
 import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
 import "./App.css";
-
-// Main App component
 const App = () => {
   // Theme state (dark/light), persisted in localStorage
   const [theme, setTheme] = useState(
     () => localStorage.getItem("theme") || "dark"
   );
 
-  // Update body class and persist theme on change
+  // Theme logic: update body class, persist theme, and notify scroll-animated components
   useEffect(() => {
     document.body.className = theme === "light" ? "light-theme" : "";
     localStorage.setItem("theme", theme);
+    // Dispatch themechange event so scroll-animated components update immediately
+    window.dispatchEvent(new Event("themechange"));
   }, [theme]);
 
   // Render main layout and all portfolio sections

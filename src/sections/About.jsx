@@ -1,18 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/About.css";
 import aboutImg from "../assets/about-pic.jpg";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
-// About: Personal intro, image, and highlights
 const About = ({ theme }) => {
+  // About.jsx: Personal introduction, highlights, and scroll-triggered animation
+  const aboutRef = useScrollAnimation(0.1);
+
+  // Force visibility check on theme change
+  useEffect(() => {
+    // Ensure scroll animation updates on theme change
+    const handleThemeChange = () => {
+      if (aboutRef.current) {
+        const rect = aboutRef.current.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (inView) {
+          aboutRef.current.classList.add("active");
+        } else {
+          aboutRef.current.classList.remove("active");
+        }
+      }
+    };
+    window.addEventListener("themechange", handleThemeChange);
+    return () => window.removeEventListener("themechange", handleThemeChange);
+  }, [aboutRef]);
+
   return (
-    <section id="about" className={`about-section ${theme}`}>
+    <section id="about" ref={aboutRef} className={`about-section ${theme}`}>
       <div className="about-container">
-        {/* Profile image (left column) */}
+        {/* Image */}
+        {/* About image */}
         <div className="about-img-container">
           <img src={aboutImg} alt="About me graphic" className="about-img" />
         </div>
 
-        {/* Main content: title, intro paragraphs, highlights */}
+        {/* Content */}
+        {/* About text and highlights */}
         <div className="about-content">
           <h2 className="about-title">About Me</h2>
           <p className="about-text">
@@ -28,7 +51,7 @@ const About = ({ theme }) => {
             🚀
           </p>
 
-          {/* Highlight cards: strengths */}
+          {/* Highlights */}
           <div className="about-highlights">
             <div className="highlight-card">⚡ Fast Learner</div>
             <div className="highlight-card">🎨 Creative Designer</div>

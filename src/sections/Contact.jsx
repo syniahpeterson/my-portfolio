@@ -1,5 +1,4 @@
-// React and icon imports
-import { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   FaUser,
   FaEnvelope,
@@ -8,9 +7,10 @@ import {
   FaRegFileAlt,
 } from "react-icons/fa";
 import emailjs from "emailjs-com";
-import "../styles/Contact.css";
+import useScrollAnimation from "../hooks/useScrollAnimation";
+import "../styles/contact.css";
 
-// Initial form and error states
+// Contact.jsx: Responsive contact form, validation, EmailJS integration, and scroll-triggered animation
 const initialState = {
   name: "",
   email: "",
@@ -18,15 +18,9 @@ const initialState = {
   phone: "",
   message: "",
 };
+const initialErrors = { name: "", email: "", subject: "", message: "" };
 
-const initialErrors = {
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-};
-
-// Field validation logic
+// Form validation logic
 const validate = (field, value) => {
   switch (field) {
     case "name":
@@ -49,42 +43,45 @@ const validate = (field, value) => {
 };
 
 const Contact = () => {
-  // State management for form, errors, touched fields, loading, success, and theme
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState(initialErrors);
   const [touched, setTouched] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
-  const [theme, setTheme] = useState(
-    document.body.classList.contains("light-theme") ? "light" : "dark"
-  );
 
-  // Listen for theme changes to update colors dynamically
+  const sectionRef = useScrollAnimation(0.3);
+
+  // Ensure scroll animation updates on theme change
   useEffect(() => {
     const handleThemeChange = () => {
-      setTheme(
-        document.body.classList.contains("light-theme") ? "light" : "dark"
-      );
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (inView) {
+          sectionRef.current.classList.add("active");
+        } else {
+          sectionRef.current.classList.remove("active");
+        }
+      }
     };
     window.addEventListener("themechange", handleThemeChange);
     return () => window.removeEventListener("themechange", handleThemeChange);
-  }, []);
+  }, [sectionRef]);
 
   // Handle input changes and validate fields
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: validate(name, value) }));
+    setForm({ ...form, [name]: value });
+    setErrors({ ...errors, [name]: validate(name, value) });
   };
 
-  // Mark field as touched and validate on blur
+  // Handle input blur and mark fields as touched
   const handleBlur = (e) => {
     const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-    setErrors((prev) => ({ ...prev, [name]: validate(name, form[name]) }));
+    setTouched({ ...touched, [name]: true });
+    setErrors({ ...errors, [name]: validate(name, form[name]) });
   };
 
-  // Check if form is valid for submission
   const isValid =
     Object.values(errors).every((err) => err === "") &&
     form.name &&
@@ -95,13 +92,9 @@ const Contact = () => {
   // Handle form submission and send email via EmailJS
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isValid) return;
     setLoading(true);
     setSuccess("");
-    if (!isValid) {
-      setLoading(false);
-      return;
-    }
-
     try {
       await emailjs.send(
         "service_tj5m947",
@@ -119,13 +112,19 @@ const Contact = () => {
     setLoading(false);
   };
 
-  // Render contact form UI
   return (
-    <section className="contact-section" id="contact">
-      <h2 className="contact-title">Contact Me</h2>
+    <section
+      ref={sectionRef}
+      className="contact-section scroll-section"
+      id="contact"
+    >
+      <h2 className="contact-title">Contact Me</h2> {/* Section title */}
       <form className="contact-form" onSubmit={handleSubmit} autoComplete="off">
-        {/* Name & Email fields */}
+        {" "}
+        {/* Contact form */}
         <div className="input-row">
+          {" "}
+          {/* Name and Email inputs */}
           <div className="input-group">
             <FaUser className="icon" />
             <input
@@ -157,9 +156,9 @@ const Contact = () => {
             )}
           </div>
         </div>
-
-        {/* Subject & Phone fields */}
         <div className="input-row">
+          {" "}
+          {/* Subject and Phone inputs */}
           <div className="input-group">
             <FaRegFileAlt className="icon" />
             <input
@@ -186,9 +185,9 @@ const Contact = () => {
             />
           </div>
         </div>
-
-        {/* Message field */}
         <div className="input-group message-group">
+          {" "}
+          {/* Message textarea */}
           <FaRegCommentDots className="icon" />
           <textarea
             name="message"
@@ -203,14 +202,13 @@ const Contact = () => {
             <span className="error-message">{errors.message}</span>
           )}
         </div>
-
-        {/* Submit button */}
         <button type="submit" disabled={!isValid || loading}>
+          {" "}
+          {/* Submit button */}
           {loading ? "Sending..." : "Send Message"}
         </button>
-
-        {/* Success or error message */}
-        {success && <div className="form-success">{success}</div>}
+        {success && <div className="form-success">{success}</div>}{" "}
+        {/* Success/error message */}
       </form>
     </section>
   );

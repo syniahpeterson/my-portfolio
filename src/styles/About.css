@@ -1,4 +1,4 @@
-/* About section base styles */
+/* About section: personal intro and highlights */
 .about-section {
   min-height: 100vh;
   padding: 80px 20px;
@@ -6,21 +6,17 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;
 }
 
-/* Light theme styles */
-.about-section.light {
-  background-color: var(--second-bg-color);
-  color: var(--text-color);
-}
-
-/* Dark theme styles */
+/* Theme support: light and dark backgrounds */
+.about-section.light,
 .about-section.dark {
   background-color: var(--second-bg-color);
   color: var(--text-color);
 }
 
-/* Main grid container for About section */
+/* Main grid container for image and content */
 .about-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -30,52 +26,55 @@
   align-items: center;
 }
 
-/* Left - Image */
-/* Left column: profile image */
+/* Profile image column */
 .about-img-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Profile image styling and animation */
+/* Profile image styling and entrance animation */
 .about-img {
   width: 90%;
   max-width: 400px;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  animation: float 4s ease-in-out infinite;
   transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
+/* Animate image in on scroll */
+.about-section.active .about-img {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease-out;
+}
+
+/* Hover effect for image */
 .about-img:hover {
   transform: scale(1.05);
 }
 
-/* Floating animation */
-/* Floating image animation */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-/* Right - Content */
-/* Right column: text content */
+/* Main content column */
 .about-content {
   text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-/* Section title styling */
+/* Animate content in on scroll */
+.about-section.active .about-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease-out;
+}
+
+/* Section title styles */
 .about-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: var(--main-color);
-  animation: fadeInUp 1s ease forwards;
 }
 
 /* Main about text paragraphs */
@@ -83,18 +82,8 @@
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 15px;
-  opacity: 0;
-  animation: fadeInUp 1s ease forwards;
 }
 
-.about-text:nth-of-type(1) {
-  animation-delay: 0.3s;
-}
-.about-text:nth-of-type(2) {
-  animation-delay: 0.6s;
-}
-
-/* Highlights / Cards */
 /* Highlight cards row */
 .about-highlights {
   display: flex;
@@ -103,7 +92,7 @@
   flex-wrap: wrap;
 }
 
-/* Individual highlight card styling */
+/* Individual highlight card styles and animation */
 .highlight-card {
   padding: 12px 20px;
   border-radius: 12px;
@@ -113,8 +102,18 @@
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
+/* Animate highlight cards in on scroll */
+.about-section.active .highlight-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease-out;
+}
+
+/* Highlight card hover effect */
 .highlight-card:hover {
   background-color: var(--main-color);
   color: #fff;
@@ -122,21 +121,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Animations */
-/* Fade-in upward animation for text */
-@keyframes fadeInUp {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Responsive */
-/* Responsive design for tablets and below */
+/* Responsive adjustments for tablets and below */
 @media (max-width: 992px) {
   .about-container {
     grid-template-columns: 1fr;
