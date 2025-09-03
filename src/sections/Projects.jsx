@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Projects.css";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import surveryForm from "../assets/survery-form.png";
+import surveryForm from "../assets/survey-form.png";
 import tributePage from "../assets/tribute-page.png";
 import landingPage from "../assets/landing-page.png";
 import technicalPage from "../assets/technical-page.png";
