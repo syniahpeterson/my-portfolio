@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiFreecodecamp } from "react-icons/si";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 import React, { useEffect } from "react";
+import profilePic from "../assets/profile-pic.jpg";
 
 // Home.jsx: Landing section with profile, intro, social links, and scroll-triggered animation
 const Home = ({ theme }) => {
@@ -31,11 +32,7 @@ const Home = ({ theme }) => {
         {/* Profile image and glow effect */}
         <div className="home-image-container">
           <div className="image-glow"></div>
-          <img
-            src="./src/assets/profile-pic.jpg"
-            alt="Profile"
-            className="home-image"
-          />
+          <img src={profilePic} alt="Profile" className="home-image" />
         </div>
 
         {/* Intro text, highlights, and social links */}
@@ -83,11 +80,7 @@ const Home = ({ theme }) => {
 
           {/* Resume download and projects navigation buttons */}
           <div className="home-buttons">
-            <a
-              href="/Syniah Peterson.pdf"
-              download
-              className="btn btn-main"
-            >
+            <a href="/Syniah Peterson.pdf" download className="btn btn-main">
               Download Resume
             </a>
             <a href="#projects" className="btn btn-main">

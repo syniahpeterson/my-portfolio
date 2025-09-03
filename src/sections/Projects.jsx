@@ -1,6 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Projects.css";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import surveryForm from "../assets/survery-form.png";
+import tributePage from "../assets/tribute-page.png";
+import landingPage from "../assets/landing-page.png";
+import technicalPage from "../assets/technical-page.png";
+import portfolio from "../assets/portfolio.png";
+import palindromeChecker from "../assets/palindrome-checker.png";
+import romanNumeralConverter from "../assets/roman-numberal-converter.png";
+import telephoneNumberValidator from "../assets/telephone-number-validator.png";
+import cashRegister from "../assets/cash-register.png";
+import pokemonSeachApp from "../assets/pokemone-search-app.png";
+import randomQuoteMachine from "../assets/random-quote-machine.png";
+import markdownPreviewer from "../assets/markdown-previewer.png";
+import drumMachine from "../assets/drum-machine.png";
+import javaScriptCalculator from "../assets/javascript-calculator.png";
+import clock from "../assets/25+5-clock.png";
+import barChart from "../assets/bar-chart.png";
+import scatterplot from "../assets/scatterplot-graph.png";
+import heatMap from "../assets/heat-map.png";
+import choropleth from "../assets/choropleth-map.png";
+import treemap from "../assets/treemap-diagram.png";
+import srl from "../assets/second-run-logistics.png";
 
 const certifications = [
   {
@@ -28,7 +49,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/HTML-CSS/tree/master/Survey-Form",
     demo: "https://syniahpeterson.github.io/HTML-CSS/Survey-Form/",
-    img: "/images/survey-form.png",
+    img: { surveryForm },
   },
   {
     title: "Tribute Page",
@@ -37,7 +58,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/HTML-CSS/tree/master/Tribute-Page",
     demo: "https://syniahpeterson.github.io/HTML-CSS/Tribute-Page/",
-    img: "/images/tribute-page.png",
+    img: { tributePage },
   },
   {
     title: "Landing Page",
@@ -46,7 +67,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/HTML-CSS/tree/master/Product-Landing-Page",
     demo: "https://syniahpeterson.github.io/HTML-CSS/Product-Landing-Page/",
-    img: "/images/landing-page.png",
+    img: { landingPage },
   },
   {
     title: "Technical Page",
@@ -55,7 +76,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/HTML-CSS/tree/master/Technical-Documentation-Page",
     demo: "https://syniahpeterson.github.io/HTML-CSS/Technical-Documentation-Page/",
-    img: "/images/technical-page.png",
+    img: { technicalPage },
   },
   {
     title: "Portfolio",
@@ -64,7 +85,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/HTML-CSS/tree/master/Personal-Portfolio",
     demo: "https://syniahpeterson.github.io/HTML-CSS/Personal-Portfolio/",
-    img: "/images/portfolio.png",
+    img: { portfolio },
   },
   {
     title: "Palindrome Checker",
@@ -73,7 +94,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/JavaScript/tree/main/Palindrome-Checker",
     demo: "https://syniahpeterson.github.io/JavaScript/Palindrome-Checker/",
-    img: "/images/palindrome-checker.png",
+    img: { palindromeChecker },
   },
   {
     title: "Roman Numeral Converter",
@@ -82,7 +103,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/JavaScript/tree/main/Roman-Numeral-Converter",
     demo: "https://syniahpeterson.github.io/JavaScript/Roman-Numeral-Converter/",
-    img: "/images/roman-numeral-converter.png",
+    img: { romanNumeralConverter },
   },
   {
     title: "Telephone Number Validator",
@@ -91,7 +112,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/JavaScript/tree/main/Telephone-Number-Validator",
     demo: "https://syniahpeterson.github.io/JavaScript/Telephone-Number-Validator/",
-    img: "/images/telephone-number-validator.png",
+    img: { telephoneNumberValidator },
   },
   {
     title: "Cash Register",
@@ -100,7 +121,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/JavaScript/tree/main/Cash-Register",
     demo: "https://syniahpeterson.github.io/JavaScript/Cash-Register/",
-    img: "/images/cash-register.png",
+    img: { cashRegister },
   },
   {
     title: "Pokémon Search App",
@@ -109,7 +130,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/JavaScript/tree/main/Pokemon-Search-App",
     demo: "https://syniahpeterson.github.io/JavaScript/Pokemon-Search-App/",
-    img: "/images/pokemon-search-app.png",
+    img: { pokemonSeachApp },
   },
   {
     title: "Random Quote Machine",
@@ -118,7 +139,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/Frontend-Development-Libraries/tree/main/Projects/Random-Quote-Machine",
     demo: "https://syniahpeterson.github.io/Frontend-Development-Libraries/Projects/Random-Quote-Machine/",
-    img: "/images/random-quote-machine.png",
+    img: { randomQuoteMachine },
   },
   {
     title: "Markdown Previewer",
@@ -127,7 +148,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/Frontend-Development-Libraries/tree/main/Projects/Markdown-Previewer",
     demo: "https://syniahpeterson.github.io/Frontend-Development-Libraries/Projects/Markdown-Previewer/",
-    img: "/images/markdown-previewer.png",
+    img: { markdownPreviewer },
   },
   {
     title: "Drum Machine",
@@ -136,7 +157,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/Frontend-Development-Libraries/tree/main/Projects/Drum-Machine",
     demo: "https://syniahpeterson.github.io/Frontend-Development-Libraries/Projects/Drum-Machine/",
-    img: "/images/drum-machine.png",
+    img: { drumMachine },
   },
   {
     title: "JavaScript Calculator",
@@ -145,7 +166,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/Frontend-Development-Libraries/tree/main/Projects/JavaScript-Calculator",
     demo: "https://syniahpeterson.github.io/Frontend-Development-Libraries/Projects/JavaScript-Calculator/",
-    img: "/images/javascript-calculator.png",
+    img: { javaScriptCalculator },
   },
   {
     title: "25 + 5 Clock",
@@ -154,7 +175,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/Frontend-Development-Libraries/tree/main/Projects/25%2B5-Clock",
     demo: "https://syniahpeterson.github.io/Frontend-Development-Libraries/Projects/25+5-Clock/",
-    img: "/images/25+5-clock.png",
+    img: { clock },
   },
   {
     title: "Bar Chart",
@@ -163,7 +184,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/Data-Visualization/blob/main/Projects/bar-chart.html",
     demo: "https://syniahpeterson.github.io/Data-Visualization/Projects/bar-chart.html",
-    img: "/images/bar-chart.png",
+    img: { barChart },
   },
   {
     title: "Scatterplot Graph",
@@ -172,7 +193,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/Data-Visualization/blob/main/Projects/scatterplot-graph.html",
     demo: "https://syniahpeterson.github.io/Data-Visualization/Projects/scatterplot-graph.html",
-    img: "/images/scatterplot-graph.png",
+    img: { scatterplot },
   },
   {
     title: "Heat Map",
@@ -181,7 +202,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/Data-Visualization/blob/main/Projects/heat-map.html",
     demo: "https://syniahpeterson.github.io/Data-Visualization/Projects/heat-map.html",
-    img: "/images/heat-map.png",
+    img: { heatMap },
   },
   {
     title: "Choropleth Map",
@@ -190,7 +211,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/Data-Visualization/blob/main/Projects/choropleth-map.html",
     demo: "https://syniahpeterson.github.io/Data-Visualization/Projects/choropleth-map.html",
-    img: "/images/choropleth-map.png",
+    img: { choropleth },
   },
   {
     title: "Treemap Diagram",
@@ -199,7 +220,7 @@ const projects = [
     github:
       "https://github.com/syniahpeterson/Data-Visualization/blob/main/Projects/treemap-diagram.html",
     demo: "https://syniahpeterson.github.io/Data-Visualization/Projects/treemap-diagram.html",
-    img: "/images/treemap-diagram.png",
+    img: { treemap },
   },
   {
     title: "Second Run Logistics Site",
@@ -207,7 +228,7 @@ const projects = [
     cert: "Freelance Projects",
     github: "#",
     demo: "https://www.secondrunlogistics.com/",
-    img: "/images/second-run-logistics.png",
+    img: { srl },
   },
 ];
 
