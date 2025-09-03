@@ -84,7 +84,7 @@ const Home = ({ theme }) => {
           {/* Resume download and projects navigation buttons */}
           <div className="home-buttons">
             <a
-              href="/Syniah Peterson Resume.pdf"
+              href="/Syniah Peterson.pdf"
               download
               className="btn btn-main"
             >
