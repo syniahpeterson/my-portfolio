@@ -1,12 +1,28 @@
-# React + Vite
+# Syniah Peterson | Frontend Web Developer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website showcasing my skills, projects, certifications, and freelance work as a frontend web developer. It demonstrates my ability to build responsive, interactive, and modern web applications using React, JavaScript, HTML, and CSS.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
+[Visit My Portfolio](https://syniahpeterson.dev)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚡ Highlights
+- Responsive design with light/dark mode toggle
+- Project showcase with GitHub links and live demos
+- Freelance and personal projects included
+- Smooth scroll animations and interactive components
+- Contact form integrated via EmailJS
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
+- **Frontend:** React, JavaScript (ES6+), HTML5, CSS3
+- **Styling & UI:** Bootstrap 5, React-Bootstrap, Figma
+- **Tools & Deployment:** Git/GitHub, Vite, GitHub Pages
+- **Design & UX:** UI/UX, Adobe Photoshop
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💻 Setup
+1. Clone the repository:
+```bash
+git clone https://github.com/syniahpeterson/my-portfolio.git
+npm install
+npm run dev
+npm run build
+npm run deploy
