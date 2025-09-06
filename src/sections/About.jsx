@@ -31,7 +31,12 @@ const About = ({ theme }) => {
         {/* Image */}
         {/* About image */}
         <div className="about-img-container">
-          <img src={aboutImg} alt="About me graphic" className="about-img" />
+          <img
+            src={aboutImg}
+            alt="About me graphic"
+            className="about-img"
+            loading="eager"
+          />
         </div>
 
         {/* Content */}

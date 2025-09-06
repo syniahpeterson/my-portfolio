@@ -32,7 +32,12 @@ const Home = ({ theme }) => {
         {/* Profile image and glow effect */}
         <div className="home-image-container">
           <div className="image-glow"></div>
-          <img src={profilePic} alt="Profile" className="home-image" />
+          <img
+            src={profilePic}
+            alt="Profile"
+            className="home-image"
+            loading="eager"
+          />
         </div>
 
         {/* Intro text, highlights, and social links */}
