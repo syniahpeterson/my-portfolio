@@ -22,6 +22,8 @@ import heatMap from "../assets/heat-map.png";
 import choropleth from "../assets/choropleth-map.png";
 import treemap from "../assets/treemap-diagram.png";
 import srl from "../assets/second-run-logistics.png";
+import kweens from "../assets/kweens-trucking.png";
+import ww from "../assets/weekend-warriors.png";
 
 const certifications = [
   {
@@ -224,11 +226,27 @@ const projects = [
   },
   {
     title: "Second Run Logistics Site",
-    desc: "Coming Soon!",
+    desc: "A modern trucking logistics website designed to highlight core services such as LTL, FTL, and expedited shipping. Built with responsive design, bold branding, and interactive animations to create a professional online presence for a growing logistics company.",
     cert: "Freelance Projects",
-    github: "#",
+    github: "https://github.com/syniahpeterson/SecondRunLogistics",
     demo: "https://www.secondrunlogistics.com/",
     img: srl,
+  },
+  {
+    title: "Kweens Trucking Site",
+    desc: "A clean, service-focused trucking website built to streamline customer inquiries and showcase freight capabilities. Emphasizes reliability, transparency, and ease of contact with a mobile-first design.",
+    cert: "Freelance Projects",
+    github: "https://github.com/syniahpeterson/KweensTruckingLLC",
+    demo: "https://www.kweenstrucking.com/",
+    img: kweens,
+  },
+  {
+    title: "Weekend Warriors Site",
+    desc: "A local service website tailored for lawn care and small construction projects. Features approachable branding, clear service descriptions, and a contact-first layout to attract new clients while building trust in the community.",
+    cert: "Freelance Projects",
+    github: "https://github.com/syniahpeterson/WeekendWarriors",
+    demo: "https://syniahpeterson.github.io/WeekendWarriors/",
+    img: ww,
   },
 ];
 
@@ -313,6 +331,17 @@ const Projects = ({ theme }) => {
             </div>
           );
         })}
+      </div>
+      {/* See More button */}
+      <div className="more-projects">
+        <a
+          href="https://github.com/syniahpeterson/Projects"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="more-projects-btn"
+        >
+          See More Projects →
+        </a>
       </div>
     </section>
   );
