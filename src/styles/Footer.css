@@ -6,12 +6,20 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
 }
 
-.footer-section.active {
+.footer-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.footer-section.active .footer-container {
   opacity: 1;
   transform: translateY(0);
 }

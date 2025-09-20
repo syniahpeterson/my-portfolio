@@ -1,23 +1,16 @@
-/* Global box-sizing for layout consistency */
-* {
-  box-sizing: border-box;
-}
-
-/* Skills section: main container and entrance animation */
+/* Skills section: full viewport height, centered content */
 .skills {
+  min-height: 100vh; /* full screen section */
+  padding: 4rem 2rem; /* balanced spacing */
   background-color: var(--bg-color);
   color: var(--text-color);
-  padding: 6rem 2rem;
   text-align: center;
-  overflow-x: hidden;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 1s ease-out;
-}
-
-.skills.active {
-  opacity: 1;
-  transform: translateY(0);
+  display: flex; /* center contents */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* prevent second scrollbar */
+  /* No opacity/transform on section itself; background always visible */
 }
 
 /* Section title styles */
@@ -25,6 +18,13 @@
   font-size: 2.5rem;
   margin-bottom: 2rem;
   color: var(--main-color);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.skills.active .section-title {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Skills grid layout */
@@ -34,6 +34,15 @@
   gap: 2rem;
   justify-items: center;
   width: 100%;
+  max-width: 1000px; /* keep grid tidy */
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.skills.active .skills-grid {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Individual skill card styles and animation */
@@ -53,7 +62,6 @@
   transform: translateY(20px);
 }
 
-/* Animate skill cards in on scroll */
 .skills.active .skill-card {
   opacity: 1;
   transform: translateY(0);

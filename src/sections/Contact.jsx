@@ -9,8 +9,6 @@ import {
 import emailjs from "emailjs-com";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 import "../styles/contact.css";
-
-// Contact.jsx: Responsive contact form, validation, EmailJS integration, and scroll-triggered animation
 const initialState = {
   name: "",
   email: "",
@@ -20,7 +18,6 @@ const initialState = {
 };
 const initialErrors = { name: "", email: "", subject: "", message: "" };
 
-// Form validation logic
 const validate = (field, value) => {
   switch (field) {
     case "name":
@@ -51,7 +48,6 @@ const Contact = () => {
 
   const sectionRef = useScrollAnimation(0.3);
 
-  // Ensure scroll animation updates on theme change
   useEffect(() => {
     const handleThemeChange = () => {
       if (sectionRef.current) {
@@ -68,14 +64,12 @@ const Contact = () => {
     return () => window.removeEventListener("themechange", handleThemeChange);
   }, [sectionRef]);
 
-  // Handle input changes and validate fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
     setErrors({ ...errors, [name]: validate(name, value) });
   };
 
-  // Handle input blur and mark fields as touched
   const handleBlur = (e) => {
     const { name } = e.target;
     setTouched({ ...touched, [name]: true });
@@ -89,7 +83,6 @@ const Contact = () => {
     form.subject &&
     form.message;
 
-  // Handle form submission and send email via EmailJS
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isValid) return;
@@ -118,13 +111,9 @@ const Contact = () => {
       className="contact-section scroll-section"
       id="contact"
     >
-      <h2 className="contact-title">Contact Me</h2> {/* Section title */}
+      <h2 className="contact-title">Contact Me</h2>
       <form className="contact-form" onSubmit={handleSubmit} autoComplete="off">
-        {" "}
-        {/* Contact form */}
         <div className="input-row">
-          {" "}
-          {/* Name and Email inputs */}
           <div className="input-group">
             <FaUser className="icon" />
             <input
@@ -135,6 +124,7 @@ const Contact = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               className={errors.name && touched.name ? "input-error" : ""}
+              autoComplete="name"
             />
             {errors.name && touched.name && (
               <span className="error-message">{errors.name}</span>
@@ -150,6 +140,7 @@ const Contact = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               className={errors.email && touched.email ? "input-error" : ""}
+              autoComplete="email"
             />
             {errors.email && touched.email && (
               <span className="error-message">{errors.email}</span>
@@ -157,8 +148,6 @@ const Contact = () => {
           </div>
         </div>
         <div className="input-row">
-          {" "}
-          {/* Subject and Phone inputs */}
           <div className="input-group">
             <FaRegFileAlt className="icon" />
             <input
@@ -169,6 +158,7 @@ const Contact = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               className={errors.subject && touched.subject ? "input-error" : ""}
+              autoComplete="off"
             />
             {errors.subject && touched.subject && (
               <span className="error-message">{errors.subject}</span>
@@ -182,12 +172,11 @@ const Contact = () => {
               placeholder="Phone (optional)"
               value={form.phone}
               onChange={handleChange}
+              autoComplete="tel"
             />
           </div>
         </div>
         <div className="input-group message-group">
-          {" "}
-          {/* Message textarea */}
           <FaRegCommentDots className="icon" />
           <textarea
             name="message"
@@ -197,18 +186,16 @@ const Contact = () => {
             onBlur={handleBlur}
             className={errors.message && touched.message ? "input-error" : ""}
             rows={5}
+            autoComplete="off"
           />
           {errors.message && touched.message && (
             <span className="error-message">{errors.message}</span>
           )}
         </div>
         <button type="submit" disabled={!isValid || loading}>
-          {" "}
-          {/* Submit button */}
           {loading ? "Sending..." : "Send Message"}
         </button>
-        {success && <div className="form-success">{success}</div>}{" "}
-        {/* Success/error message */}
+        {success && <div className="form-success">{success}</div>}
       </form>
     </section>
   );

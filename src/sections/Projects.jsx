@@ -226,7 +226,7 @@ const projects = [
   },
   {
     title: "Second Run Logistics Site",
-    desc: "A modern trucking logistics website designed to highlight core services such as LTL, FTL, and expedited shipping. Built with responsive design, bold branding, and interactive animations to create a professional online presence for a growing logistics company.",
+    desc: "A modern trucking logistics website designed to highlight core services such as LTL, FTL, and expedited shipping.",
     cert: "Freelance Projects",
     github: "https://github.com/syniahpeterson/SecondRunLogistics",
     demo: "https://www.secondrunlogistics.com/",
@@ -234,7 +234,7 @@ const projects = [
   },
   {
     title: "Kweens Trucking Site",
-    desc: "A clean, service-focused trucking website built to streamline customer inquiries and showcase freight capabilities. Emphasizes reliability, transparency, and ease of contact with a mobile-first design.",
+    desc: "A clean, service-focused trucking website built to streamline customer inquiries and showcase freight capabilities.",
     cert: "Freelance Projects",
     github: "https://github.com/syniahpeterson/KweensTruckingLLC",
     demo: "https://www.kweenstrucking.com/",
@@ -242,7 +242,7 @@ const projects = [
   },
   {
     title: "Weekend Warriors Site",
-    desc: "A local service website tailored for lawn care and small construction projects. Features approachable branding, clear service descriptions, and a contact-first layout to attract new clients while building trust in the community.",
+    desc: "A local service website tailored for lawn care and small construction projects.",
     cert: "Freelance Projects",
     github: "https://github.com/syniahpeterson/WeekendWarriors",
     demo: "https://syniahpeterson.github.io/WeekendWarriors/",

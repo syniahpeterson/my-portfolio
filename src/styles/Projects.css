@@ -3,16 +3,10 @@
   background-color: var(--second-bg-color);
   color: var(--text-color);
   padding: 4rem 1rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease-out;
+  /* No opacity/transform on section itself; background always visible */
 }
 
 /* Animate section in on scroll */
-.projects-section.active {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* Section title styles */
 .projects-title {
@@ -20,6 +14,13 @@
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: var(--main-color);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.projects-section.active .projects-title {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Certifications legend row */
@@ -29,6 +30,13 @@
   justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.projects-section.active .projects-legend {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Individual legend item styles */
@@ -53,10 +61,20 @@
   display: flex;
   gap: 1.5rem;
   overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  min-width: 0;
   padding: 1rem;
   background-color: var(--bg-color);
   border-radius: 1rem;
   scroll-behavior: smooth;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.projects-section.active .projects-row {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Custom scrollbar styles */
@@ -169,6 +187,13 @@
 .more-projects {
   text-align: center;
   margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.projects-section.active .more-projects {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Button style */

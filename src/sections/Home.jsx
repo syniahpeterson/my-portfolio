@@ -27,7 +27,7 @@ const Home = ({ theme }) => {
   }, [homeRef]);
 
   return (
-    <section ref={homeRef} className={`home-section ${theme}`}>
+    <section id="home" ref={homeRef} className={`home-section ${theme}`}>
       <div className="home-container">
         {/* Profile image and glow effect */}
         <div className="home-image-container">

@@ -29,40 +29,14 @@ const App = () => {
       {/* Navigation bar with theme toggle */}
       <PortfolioNavbar theme={theme} setTheme={setTheme} />
 
-      {/* Home section */}
-      <section id="home">
-        <Home theme={theme} />
-      </section>
-
-      {/* About section */}
-      <section id="about">
-        <About theme={theme} />
-      </section>
-
-      {/* Skills section */}
-      <section id="skills">
-        <Skills theme={theme} />
-      </section>
-
-      {/* Projects section */}
-      <section id="projects">
-        <Projects theme={theme} />
-      </section>
-
-      {/* Certifications section */}
-      <section id="certifications">
-        <Certifications theme={theme} />
-      </section>
-
-      {/* Contact section */}
-      <section id="contact">
-        <Contact theme={theme} />
-      </section>
-
-      {/* Footer section */}
-      <section id="footer">
-        <Footer theme={theme} />
-      </section>
+      {/* Render sections directly — each component renders its own <section> */}
+      <Home theme={theme} />
+      <About theme={theme} />
+      <Skills theme={theme} />
+      <Projects theme={theme} />
+      <Certifications theme={theme} />
+      <Contact theme={theme} />
+      <Footer theme={theme} />
     </main>
   );
 };

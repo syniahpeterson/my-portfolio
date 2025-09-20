@@ -1,7 +1,6 @@
 /* Home section: main landing area */
-.home-section {
-  width: 100vw;
-  min-height: 100vh;
+#home {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +9,13 @@
   background-color: var(--bg-color);
   color: var(--text-color);
   overflow: hidden;
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 991px) {
+  #home {
+    padding-top: 7.5rem;
+  }
 }
 
 /* Animate text on scroll into view */

@@ -1,12 +1,12 @@
 /* About section: personal intro and highlights */
 .about-section {
-  min-height: 100vh;
   padding: 80px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow: hidden;
+  /* No opacity/transform on section itself; background always visible */
 }
 
 /* Theme support: light and dark backgrounds */
@@ -24,6 +24,13 @@
   max-width: 1100px;
   width: 100%;
   align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.about-section.active .about-container {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Profile image column */

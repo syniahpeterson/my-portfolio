@@ -24,7 +24,6 @@ body,
 #root,
 main {
   overflow-x: hidden;
-  max-width: 100vw;
 }
 :root {
   /* Default dark theme variables */
@@ -47,7 +46,7 @@ main {
 }
 
 /* Section layout for main content blocks */
-.section {
+section {
   min-height: 100vh;
   padding: 4rem 2rem 5vh 2rem;
   display: flex;
@@ -59,113 +58,4 @@ main {
 /* Smooth anchor scrolling for all links */
 html {
   scroll-behavior: smooth;
-}
-
-/* --- Navbar Styles --- */
-.custom-navbar {
-  background-color: var(--bg-color) !important;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navbar-scrolled {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-.custom-navbar .container {
-  overflow: visible !important;
-}
-
-.custom-navbar .navbar-brand,
-.custom-navbar .nav-link {
-  color: var(--text-color) !important;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.custom-navbar .navbar-brand:hover {
-  color: var(--main-color);
-  transform: scale(1.05);
-}
-
-.custom-navbar .nav-link {
-  position: relative;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.custom-navbar .nav-link:hover {
-  color: var(--main-color) !important;
-  transform: translateY(-2px);
-}
-
-.custom-navbar .nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background-color: var(--main-color);
-  transition: width 0.3s ease;
-}
-
-.custom-navbar .nav-link:hover::after {
-  width: 100%;
-}
-
-.custom-navbar .nav-link.active {
-  color: var(--main-color) !important;
-  font-weight: bold;
-  border-bottom: 2px solid var(--main-color);
-}
-
-.custom-navbar .btn svg {
-  transition: transform 0.3s ease;
-}
-
-.custom-navbar .btn:active svg {
-  transform: rotate(20deg);
-}
-
-/* --- Hamburger Menu Styles --- */
-.custom-toggler {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  padding: 0;
-  position: relative;
-}
-
-.custom-toggler .bar {
-  position: absolute;
-  width: 22px;
-  height: 2px;
-  background-color: var(--main-color);
-  transition: all 0.3s ease;
-}
-
-.custom-toggler .bar1 {
-  transform: rotate(0deg);
-}
-
-.custom-toggler .bar2 {
-  transform: rotate(90deg);
-}
-
-.custom-toggler.open .bar1 {
-  transform: rotate(0deg);
-}
-
-.custom-toggler.open .bar2 {
-  opacity: 0;
-}
-
-@media (min-width: 992px) {
-  .custom-toggler {
-    display: none !important;
-  }
 }
