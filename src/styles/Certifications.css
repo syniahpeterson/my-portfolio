@@ -136,3 +136,43 @@
     max-width: 100%;
   }
 }
+
+/* Buttons container inside card */
+.cert-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Default button */
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--main-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+/* Hover effect */
+.cert-link:hover {
+  background: var(--main-color-light);
+  transform: translateY(-2px);
+}
+
+/* GitHub-specific button */
+.cert-link.github {
+  background: var(--main-color)
+}
+
+.cert-link.github:hover {
+  background: #444c56;
+}
+
+.github-icon {
+  font-size: 1.1rem;
+}
