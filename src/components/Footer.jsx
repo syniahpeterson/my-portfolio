@@ -92,7 +92,9 @@ const Footer = ({ theme }) => {
 
         {/* Copyright notice */}
         <div className="footer-bottom">
-          <p>© 2025 Syniah Peterson. All Rights Reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Syniah Peterson. All Rights Reserved.
+          </p>
         </div>
       </div>
     </footer>
