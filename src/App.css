@@ -19,6 +19,53 @@
 }
 
 /* Prevent unwanted horizontal scroll on all main containers */
+:root {
+  /* Default dark theme variables */
+  --bg-color: #1f242d;
+  --second-bg-color: #323946;
+  --text-color: #fff;
+  --main-color: #8884ff;
+  --btn-color: #8884ff;
+  --btn-text: #fff;
+}
+
+.light-theme {
+  /* Light theme variables override */
+  --bg-color: #f9f9f9;
+  --second-bg-color: #e6e6e6;
+  --text-color: #222;
+  --main-color: #6c63ff;
+  --btn-color: #6c63ff;
+  --btn-text: #fff;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/overlay.png") center center/cover no-repeat;
+  opacity: 0.55;
+}
+
+@media (max-width: 900px) {
+  body::before {
+    background-size: 120% auto;
+    background-position: center center;
+  }
+}
+
+@media (max-width: 600px) {
+  body::before {
+    background-size: 150% auto;
+    background-position: center center;
+  }
+}
+
 html,
 body,
 #root,
