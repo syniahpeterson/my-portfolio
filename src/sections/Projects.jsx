@@ -1,26 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Projects.css";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import surveryForm from "../assets/survey-form.png";
-import tributePage from "../assets/tribute-page.png";
 import landingPage from "../assets/landing-page.png";
-import technicalPage from "../assets/technical-page.png";
-import portfolio from "../assets/portfolio.png";
 import palindromeChecker from "../assets/palindrome-checker.png";
 import romanNumeralConverter from "../assets/roman-numeral-converter.png";
-import telephoneNumberValidator from "../assets/telephone-number-validator.png";
-import cashRegister from "../assets/cash-register.png";
 import pokemonSeachApp from "../assets/pokemon-search-app.png";
 import randomQuoteMachine from "../assets/random-quote-machine.png";
 import markdownPreviewer from "../assets/markdown-previewer.png";
-import drumMachine from "../assets/drum-machine.png";
-import javaScriptCalculator from "../assets/javascript-calculator.png";
-import clock from "../assets/25+5-clock.png";
 import barChart from "../assets/bar-chart.png";
 import scatterplot from "../assets/scatterplot-graph.png";
-import heatMap from "../assets/heat-map.png";
-import choropleth from "../assets/choropleth-map.png";
-import treemap from "../assets/treemap-diagram.png";
 import srl from "../assets/second-run-logistics.png";
 import kweens from "../assets/kweens-trucking.png";
 import ww from "../assets/weekend-warriors.png";
@@ -45,22 +33,28 @@ const certifications = [
 // Projects data: title, description, cert, links, and image for each project
 const projects = [
   {
-    title: "Survey Form",
-    desc: "A responsive web form built with HTML, CSS, and JavaScript that collects user feedback and validates inputs effectively.",
-    cert: "Responsive Web Design",
-    github:
-      "https://github.com/syniahpeterson/HTML-CSS/tree/master/Survey-Form",
-    demo: "https://syniahpeterson.github.io/HTML-CSS/Survey-Form/",
-    img: surveryForm,
+    title: "Second Run Logistics Site",
+    desc: "A modern trucking logistics website designed to highlight core services such as LTL, FTL, and expedited shipping.",
+    cert: "Freelance Projects",
+    github: "https://github.com/syniahpeterson/SecondRunLogistics",
+    demo: "https://www.secondrunlogistics.com/",
+    img: srl,
   },
   {
-    title: "Tribute Page",
-    desc: "A responsive tribute webpage built with HTML and CSS, showcasing Aretha Franklin's life, achievements, and legacy.",
-    cert: "Responsive Web Design",
-    github:
-      "https://github.com/syniahpeterson/HTML-CSS/tree/master/Tribute-Page",
-    demo: "https://syniahpeterson.github.io/HTML-CSS/Tribute-Page/",
-    img: tributePage,
+    title: "Kweens Trucking Site",
+    desc: "A clean, service-focused trucking website built to streamline customer inquiries and showcase freight capabilities.",
+    cert: "Freelance Projects",
+    github: "https://github.com/syniahpeterson/KweensTruckingLLC",
+    demo: "https://www.kweenstrucking.com/",
+    img: kweens,
+  },
+  {
+    title: "Weekend Warriors Site",
+    desc: "A local service website tailored for lawn care and small construction projects.",
+    cert: "Freelance Projects",
+    github: "https://github.com/syniahpeterson/WeekendWarriors",
+    demo: "https://syniahpeterson.github.io/WeekendWarriors/",
+    img: ww,
   },
   {
     title: "Landing Page",
@@ -70,24 +64,6 @@ const projects = [
       "https://github.com/syniahpeterson/HTML-CSS/tree/master/Product-Landing-Page",
     demo: "https://syniahpeterson.github.io/HTML-CSS/Product-Landing-Page/",
     img: landingPage,
-  },
-  {
-    title: "Technical Page",
-    desc: "A responsive technical documentation page built with HTML and CSS, presenting organized information, code examples, and clear instructions.",
-    cert: "Responsive Web Design",
-    github:
-      "https://github.com/syniahpeterson/HTML-CSS/tree/master/Technical-Documentation-Page",
-    demo: "https://syniahpeterson.github.io/HTML-CSS/Technical-Documentation-Page/",
-    img: technicalPage,
-  },
-  {
-    title: "Portfolio",
-    desc: "A responsive portfolio webpage built with HTML and CSS, showcasing projects, skills, and personal achievements in a clean layout.",
-    cert: "Responsive Web Design",
-    github:
-      "https://github.com/syniahpeterson/HTML-CSS/tree/master/Personal-Portfolio",
-    demo: "https://syniahpeterson.github.io/HTML-CSS/Personal-Portfolio/",
-    img: portfolio,
   },
   {
     title: "Palindrome Checker",
@@ -106,24 +82,6 @@ const projects = [
       "https://github.com/syniahpeterson/JavaScript/tree/main/Roman-Numeral-Converter",
     demo: "https://syniahpeterson.github.io/JavaScript/Roman-Numeral-Converter/",
     img: romanNumeralConverter,
-  },
-  {
-    title: "Telephone Number Validator",
-    desc: "Validates US telephone numbers using JavaScript and regular expressions, ensuring proper format and handling edge cases.",
-    cert: "JavaScript Algorithms",
-    github:
-      "https://github.com/syniahpeterson/JavaScript/tree/main/Telephone-Number-Validator",
-    demo: "https://syniahpeterson.github.io/JavaScript/Telephone-Number-Validator/",
-    img: telephoneNumberValidator,
-  },
-  {
-    title: "Cash Register",
-    desc: "Simulates a cash register in JavaScript that calculates change, handles insufficient funds, and updates transaction status dynamically.",
-    cert: "JavaScript Algorithms",
-    github:
-      "https://github.com/syniahpeterson/JavaScript/tree/main/Cash-Register",
-    demo: "https://syniahpeterson.github.io/JavaScript/Cash-Register/",
-    img: cashRegister,
   },
   {
     title: "Pokémon Search App",
@@ -153,33 +111,6 @@ const projects = [
     img: markdownPreviewer,
   },
   {
-    title: "Drum Machine",
-    desc: "An interactive React app that plays different drum sounds via clickable pads or keyboard keys, with volume and power controls.",
-    cert: "Front End Libraries",
-    github:
-      "https://github.com/syniahpeterson/Frontend-Development-Libraries/tree/main/Projects/Drum-Machine",
-    demo: "https://syniahpeterson.github.io/Frontend-Development-Libraries/Projects/Drum-Machine/",
-    img: drumMachine,
-  },
-  {
-    title: "JavaScript Calculator",
-    desc: "A React calculator app that performs basic arithmetic operations with proper order of operations and an intuitive, responsive interface.",
-    cert: "Front End Libraries",
-    github:
-      "https://github.com/syniahpeterson/Frontend-Development-Libraries/tree/main/Projects/JavaScript-Calculator",
-    demo: "https://syniahpeterson.github.io/Frontend-Development-Libraries/Projects/JavaScript-Calculator/",
-    img: javaScriptCalculator,
-  },
-  {
-    title: "25 + 5 Clock",
-    desc: "A React Pomodoro-style clock with customizable 25-minute sessions and 5-minute breaks, complete with start, pause, and reset controls.",
-    cert: "Front End Libraries",
-    github:
-      "https://github.com/syniahpeterson/Frontend-Development-Libraries/tree/main/Projects/25%2B5-Clock",
-    demo: "https://syniahpeterson.github.io/Frontend-Development-Libraries/Projects/25+5-Clock/",
-    img: clock,
-  },
-  {
     title: "Bar Chart",
     desc: "An interactive D3.js bar chart visualizing U.S. GDP data, featuring tooltips, hover effects, and dynamic scaling for responsive presentation.",
     cert: "Data Visualization",
@@ -196,57 +127,6 @@ const projects = [
       "https://github.com/syniahpeterson/Data-Visualization/blob/main/Projects/scatterplot-graph.html",
     demo: "https://syniahpeterson.github.io/Data-Visualization/Projects/scatterplot-graph.html",
     img: scatterplot,
-  },
-  {
-    title: "Heat Map",
-    desc: "A D3.js heat map showing global temperature variations across years and months, with a color scale legend and interactive tooltips.",
-    cert: "Data Visualization",
-    github:
-      "https://github.com/syniahpeterson/Data-Visualization/blob/main/Projects/heat-map.html",
-    demo: "https://syniahpeterson.github.io/Data-Visualization/Projects/heat-map.html",
-    img: heatMap,
-  },
-  {
-    title: "Choropleth Map",
-    desc: "A D3.js choropleth map of U.S. counties, displaying educational attainment levels through color shading and tooltips for detailed insights.",
-    cert: "Data Visualization",
-    github:
-      "https://github.com/syniahpeterson/Data-Visualization/blob/main/Projects/choropleth-map.html",
-    demo: "https://syniahpeterson.github.io/Data-Visualization/Projects/choropleth-map.html",
-    img: choropleth,
-  },
-  {
-    title: "Treemap Diagram",
-    desc: "A D3.js treemap diagram visualizing movie sales data by category, with hover tooltips and proportional rectangles representing hierarchical relationships.",
-    cert: "Data Visualization",
-    github:
-      "https://github.com/syniahpeterson/Data-Visualization/blob/main/Projects/treemap-diagram.html",
-    demo: "https://syniahpeterson.github.io/Data-Visualization/Projects/treemap-diagram.html",
-    img: treemap,
-  },
-  {
-    title: "Second Run Logistics Site",
-    desc: "A modern trucking logistics website designed to highlight core services such as LTL, FTL, and expedited shipping.",
-    cert: "Freelance Projects",
-    github: "https://github.com/syniahpeterson/SecondRunLogistics",
-    demo: "https://www.secondrunlogistics.com/",
-    img: srl,
-  },
-  {
-    title: "Kweens Trucking Site",
-    desc: "A clean, service-focused trucking website built to streamline customer inquiries and showcase freight capabilities.",
-    cert: "Freelance Projects",
-    github: "https://github.com/syniahpeterson/KweensTruckingLLC",
-    demo: "https://www.kweenstrucking.com/",
-    img: kweens,
-  },
-  {
-    title: "Weekend Warriors Site",
-    desc: "A local service website tailored for lawn care and small construction projects.",
-    cert: "Freelance Projects",
-    github: "https://github.com/syniahpeterson/WeekendWarriors",
-    demo: "https://syniahpeterson.github.io/WeekendWarriors/",
-    img: ww,
   },
 ];
 
