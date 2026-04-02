@@ -12,6 +12,8 @@ import scatterplot from "../assets/scatterplot-graph.png";
 import srl from "../assets/second-run-logistics.png";
 import kweens from "../assets/kweens-trucking.png";
 import ww from "../assets/weekend-warriors.png";
+import movie from "../assets/movie.png";
+import crypto from "../assets/crypto.png";
 
 const certifications = [
   {
@@ -24,8 +26,16 @@ const certifications = [
     color: "#6a4c93",
     link: "https://www.freecodecamp.org/certification/syniahpeterson/javascript-algorithms-and-data-structures-v8",
   },
-  { name: "Front End Libraries", color: "#5e60ce", link: "#" },
-  { name: "Data Visualization", color: "#4361ee", link: "#" },
+  {
+    name: "Front End Libraries",
+    color: "#5e60ce",
+    link: "https://github.com/syniahpeterson/Frontend-Development-Libraries",
+  },
+  {
+    name: "Data Visualization",
+    color: "#4361ee",
+    link: "https://github.com/syniahpeterson/Data-Visualization",
+  },
   { name: "Freelance Projects", color: "#4cc9f0" },
 ];
 
@@ -55,6 +65,22 @@ const projects = [
     github: "https://github.com/syniahpeterson/WeekendWarriors",
     demo: "https://syniahpeterson.github.io/WeekendWarriors/",
     img: ww,
+  },
+  {
+    title: "Movie Watchlist App",
+    desc: "A movie management application that enables users to search, track, and organize films with watch status, ratings, and persistent local storage.",
+    cert: "Front End Libraries",
+    github: "https://github.com/syniahpeterson/movie-watchlist-app",
+    demo: "https://movie-watchlist-app-opal-one.vercel.app/",
+    img: movie,
+  },
+  {
+    title: "Crypto Price Tracker",
+    desc: "A real-time cryptocurrency tracking application that retrieves and displays asset data through structured API requests and optimized search performance.",
+    cert: "Front End Libraries",
+    github: "https://github.com/syniahpeterson/crypto-price-tracker",
+    demo: "https://crypto-price-tracker-kappa-rose.vercel.app/",
+    img: crypto,
   },
   {
     title: "Landing Page",
@@ -138,7 +164,7 @@ const Projects = ({ theme }) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setActive(entry.isIntersecting),
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => sectionRef.current && observer.unobserve(sectionRef.current);

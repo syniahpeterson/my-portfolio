@@ -51,7 +51,7 @@ const Home = ({ theme }) => {
             into polished websites.
           </p>
           <p className="highlights">
-            4 FCC Certifications • 2 Freelance Projects • React, HTML, CSS, JS,
+            4 FCC Certifications • 3 Freelance Projects • React, HTML, CSS, JS,
             Bootstrap
           </p>
 

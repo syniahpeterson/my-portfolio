@@ -7,7 +7,11 @@ import {
   FaGitAlt,
   FaGithub,
   FaBootstrap,
+  FaNetworkWired,
+  FaSyncAlt,
 } from "react-icons/fa";
+import { VscVscodeInsiders } from "react-icons/vsc";
+import { MdDevices } from "react-icons/md";
 import { SiRedux } from "react-icons/si";
 import "../styles/skills.css";
 import useScrollAnimation from "../hooks/useScrollAnimation";
@@ -37,12 +41,16 @@ const Skills = ({ theme }) => {
   const skills = [
     { name: "HTML5", icon: <FaHtml5 color="#E34F26" /> },
     { name: "CSS3", icon: <FaCss3Alt color="#1572B6" /> },
-    { name: "JavaScript", icon: <FaJsSquare color="#F7DF1E" /> },
+    { name: "JavaScript", icon: <FaJsSquare color="#f7db08" /> },
     { name: "React", icon: <FaReact color="#61DBFB" /> },
     { name: "Redux", icon: <SiRedux color="#764abc" /> },
     { name: "Bootstrap", icon: <FaBootstrap color="#7952B3" /> },
     { name: "Git", icon: <FaGitAlt color="#F1502F" /> },
     { name: "GitHub", icon: <FaGithub color="#fff" /> },
+    { name: "REST APIs", icon: <FaNetworkWired color="#00D4FF" /> },
+    { name: "Responsive Design", icon: <MdDevices color="#FF6B6B" /> },
+    { name: "Custom Hooks", icon: <FaSyncAlt color="#9bf607" /> },
+    { name: "VS Code", icon: <VscVscodeInsiders color="#FF00FF" /> },
   ];
 
   return (
