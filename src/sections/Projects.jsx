@@ -14,6 +14,7 @@ import kweens from "../assets/kweens-trucking.png";
 import ww from "../assets/weekend-warriors.png";
 import movie from "../assets/movie.png";
 import crypto from "../assets/crypto.png";
+import nbc from "../assets/nbc.png";
 
 const certifications = [
   {
@@ -65,6 +66,14 @@ const projects = [
     github: "https://github.com/syniahpeterson/WeekendWarriors",
     demo: "https://syniahpeterson.github.io/WeekendWarriors/",
     img: ww,
+  },
+  {
+    title: "Nichole's Beauty Co. Site",
+    desc: "A full-featured e-commerce frontend with cart management, filtering, and Stripe checkout integration.",
+    cert: "Freelance Projects",
+    github: "https://github.com/syniahpeterson/Nichole-Beauty-Co",
+    demo: "https://nichole-beauty-co.vercel.app/",
+    img: nbc,
   },
   {
     title: "Movie Watchlist App",
